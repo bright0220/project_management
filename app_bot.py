@@ -46,7 +46,10 @@ def get_bot_response():
 
 @app.route("/info", methods=["POST"])
 def sbot_gpt():
-
+    resp = MessagingResponse()
+    msg = resp.message("Based on our conversation, I've drafted a working plan. Here is the URL of the Plan: \n\n https://65af-43-205-230-148.in.ngrok.io/plan_id/b24f2d4d-b855-4f55-b556-dc680f1dc2df/"
+)
+    return  str(resp)
     id = str(request.values.get("From", ""))+"_spree"
     incoming_msg = request.values.get("Body", "")
     chat_model=GPT(id,"infoagent")
