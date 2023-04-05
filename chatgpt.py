@@ -127,7 +127,7 @@ class GPT:
                         json.dump({"table":sintres}, jsonFile)
                 jsonFile.close()
                 
-                res=res+"\n\n"+"http://127.0.0.1:8000/"+str(ids)
+                res=res+"\n\n"+"https://65af-43-205-230-148.in.ngrok.io/"+str(ids)
         self.session["log"].append({"role": "assistant", "content": res})
         with open(self.file_name, "w") as jsonFile:
             json.dump(self.session, jsonFile)
