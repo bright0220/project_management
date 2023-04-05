@@ -1,0 +1,530 @@
+<head>
+    
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.0.2/cleave.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+<div class="cont">
+    <div class="bask-disp">
+      <div class="bask-head">
+        <h3>Check Out for the Future</h3>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div class="bask-body">
+        <div class="baski">
+          <div class="baski-ihld">
+            <img src="/static/chat.png" alt="" />
+          </div>
+          <div class="baski-txt">
+            <h4> Agent {{agent_name}} </h4>
+            <div class="exdsp">
+              <span class="baski-price">$9.00</span>
+              <h5>Company : {{company_name}}</h5>
+            </div>
+         
+            
+          </div>
+        </div>
+ 
+      </div>
+      <div class="bask-body">
+        <div class="baski">
+         
+          <div class="baski-txt">
+            <h5> Agent Info </h5>
+             
+              <p>{{bot_info}}</p>
+              
+              <div class="baski-tags">
+              {% for each in tags %}
+              <div class="baski-tag">{{each}}</div> 
+              {% endfor %} 
+              </div>  
+              
+          </div>
+        </div>
+ 
+      </div>
+      <div class="bask-foot">
+        <table class="pricing">
+          <tbody>
+            <tr>
+              <td>Total:</td>
+              <td>$9.00</td>
+            </tr>
+             
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- <div class="card-disp">
+      <div class="card-user-show"> 
+        <span class="cd-dsp-txt expiresend">Expires end</span>
+        <span class="cd-dsp-txt cardholder">Card holder</span>
+        
+        <div class="cd-inf-txt cardnumber"></div>
+        <div class="cd-inf-txt expiresend"></div>
+        <div class="cd-inf-txt cardholder"></div>
+      </div>
+      <div class="card-input-area">
+        <form>
+          <div class="fgroup fullname">
+            <label for="fullname">Full name <span>*</span></label>
+            <input placeholder="John Smith, etc." type="text" name="fullname" id="fullname" value="{{name}}" />
+          </div>
+          <div class="fgroup expire">
+            <label for="expireMM">Expiry date <span>*</span></label>
+             <select name='expireMM' id='expireMM'>
+               <option disabled value=''>Month</option>
+               <option value='01'>01</option>
+               <option value='02'>02</option>
+               <option value='03'>03</option>
+               <option value='04'>04</option>
+               <option value='05'>05</option>
+               <option value='06'>06</option>
+               <option value='07'>07</option>
+               <option value='08'>08</option>
+               <option value='09'>09</option>
+               <option value='10'>10</option>
+               <option value='11'>11</option>
+               <option value='12'>12</option>
+             </select> 
+             <select name='expireYY' id='expireYY'>
+               <option disabled value=''>Year</option>
+               <option value='21'>2021</option>
+               <option value='22'>2022</option>
+               <option value='23'>2023</option>
+               <option value='24'>2024</option>
+               <option value='25'>2025</option>
+             </select> 
+          </div>
+          <div class="fgroup cnumber">
+            <label for="ccnumber">Card number <span>*</span></label>
+            <div>
+              <input id="ccnumber" name="ccnumber" class="ccnumber" placeholder="####-####-####-####" />
+            </div>
+          </div>
+          <div class="fgroup ccv">
+            <label for="ccv">CCV <span>*</span></label>
+            <div>
+              <input id="ccv" name="ccv" placeholder="123" />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="card-next-aera">
+        <div class="address-disp"  onClick="this.contentEditable='true';">
+          1411 Waterfront  ,
+          Los Angeles CA ,
+          USA  
+        </div>
+        <div class="btns">
+         <a href="success"  style="text-decoration:none"> <div class="btn btn-2" >Continue to payment</div></a>
+         
+        </div>
+      </div>
+    </div> -->
+  </div>
+
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+body {
+  background-color: #2d1c71;
+  font-family: "Epilogue", sans-serif;
+}
+body .cont {
+  display: flex;
+  width: fit-content;
+  margin: auto;
+  padding-top: 100px;
+}
+body .cont .bask-disp {
+  background-color: #1f144f;
+  color: #eceaff;
+ 
+  padding: 30px 25px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+body .cont .bask-disp .bask-head h3 {
+  margin: 0;
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 300;
+}
+body .cont .bask-disp .bask-body .baski {
+  display: flex;
+  align-items: center;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(45, 28, 113, 0.3);
+}
+body .cont .bask-disp .bask-body .baski .baski-ihld {
+  flex-shrink: 0;
+  width: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .cont .bask-disp .bask-body .baski .baski-ihld img {
+  width: 80%;
+}
+body .cont .bask-disp .bask-body .baski .baski-txt h4 {
+  margin: 0 0;
+  font-size: 18px;
+  font-weight: 300;
+  color: #eceaff;
+}
+body .cont .bask-disp .bask-body .baski .baski-txt .exdsp {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+body .cont .bask-disp .bask-body .baski .baski-txt .exdsp h5 {
+  margin: 0 0;
+  margin-left: 10px;
+}
+body .cont .bask-disp .bask-body .baski .baski-txt .exdsp .baski-price {
+  font-size: 19px;
+  font-weight: 600;
+  color: #57c4fe;
+}
+body .cont .bask-disp .bask-body .baski .baski-txt .baski-tags {
+  display: flex;
+  margin: 10px 0;
+}
+body .cont .bask-disp .bask-body .baski .baski-txt .baski-tags .baski-tag {
+  font-size: 12px;
+  padding: 4px 6px;
+  background-color: #42337f;
+  color: #aba4c6;
+  margin: 0px 2px;
+  border-radius: 3px;
+}
+body .cont .bask-disp .bask-body .baski .baski-txt .baski-tags .baski-tag:nth-child(1) {
+  margin-left: 0px;
+}
+body .cont .bask-disp .bask-body .baski .baski-txt .baski-tags .baski-tag:nth-last-child(1) {
+  margin-right: 0px;
+}
+body .cont .bask-disp .bask-foot table {
+  width: 100%;
+}
+body .cont .bask-disp .bask-foot table tr td:nth-last-child(1) {
+  text-align: right;
+}
+body .cont .bask-disp .bask-foot table tr:nth-child(1) {
+  font-size: 14px;
+  color: #aba4c6;
+}
+body .cont .bask-disp .bask-foot table tr:nth-child(1) td {
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+body .cont .bask-disp .bask-foot table tr:nth-last-child(1) td {
+  border-top: 1px solid #2d1c71;
+  padding-top: 20px;
+}
+body .cont .bask-disp .bask-foot table tr:nth-last-child(1) td:nth-last-child(1) {
+  font-weight: 600;
+  font-size: 20px;
+}
+body .cont .bask-disp .bask-foot table tr:nth-last-child(2) {
+  font-size: 14px;
+  color: #aba4c6;
+}
+body .cont .bask-disp .bask-foot table tr:nth-last-child(2) td {
+  padding-bottom: 15px;
+}
+body .cont .bask-disp .bask-foot table tr:nth-last-child(2) td:nth-last-child(1) {
+  color: #1b721b;
+  font-weight: 600;
+}
+body .cont .card-disp {
+  width: 480px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background: #452dfc;
+  position: relative;
+}
+body .cont .card-disp .card-user-show {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -75px;
+  margin: auto;
+  font-family: "Roboto Mono", monospace;
+  width: 450px;
+  height: 250px;
+  background-color: #060764;
+  border-radius: 15px;
+}
+body .cont .card-disp .card-user-show .cardtypei {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 30px;
+  color: #74abfd;
+}
+body .cont .card-disp .card-user-show .cd-dsp-txt {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 13px;
+  position: absolute;
+}
+body .cont .card-disp .card-user-show .cd-dsp-txt.cardholder {
+  left: 15px;
+  bottom: 80px;
+  color: #8383b2;
+}
+body .cont .card-disp .card-user-show .cd-dsp-txt.expiresend {
+  right: 15px;
+  bottom: 75px;
+  color: #8383b2;
+}
+body .cont .card-disp .card-user-show .cd-inf-txt.cardnumber {
+  position: absolute;
+  top: 95px;
+  left: 15px;
+  right: 15px;
+  bottom: 0;
+  margin: auto;
+  color: #fff;
+  font-size: 36px;
+  font-weight: 300;
+}
+body .cont .card-disp .card-user-show .cd-inf-txt.expiresend {
+  font-weight: 300;
+  color: #fff;
+  position: absolute;
+  right: 15px;
+  bottom: 40px;
+  font-size: 25px;
+}
+body .cont .card-disp .card-user-show .cd-inf-txt.cardholder {
+  font-weight: 300;
+  color: #fff;
+  position: absolute;
+  left: 15px;
+  bottom: 40px;
+  font-size: 25px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: -webkit-fill-available;
+  padding-right: 140px;
+}
+body .cont .card-disp .card-user-show:before {
+  content: "";
+  height: 150px;
+  width: 180px;
+  background-image: url("/static/chat.png/visa.svg");
+  display: flex;
+  position: absolute;
+  top: 35px;
+  left: 15px;
+ 
+  background-repeat: no-repeat;
+}
+body .cont .card-disp .card-input-area {
+  padding: 0 20px;
+  padding-top: 190px;
+  color: #fff;
+}
+body .cont .card-disp .card-input-area form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+body .cont .card-disp .card-input-area .fgroup {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+body .cont .card-disp .card-input-area .fgroup.ccv {
+  width: 68px;
+  margin-left: 5px;
+}
+body .cont .card-disp .card-input-area .fgroup.ccv input {
+  width: 100%;
+}
+body .cont .card-disp .card-input-area .fgroup.cnumber {
+  width: calc(100% - 105px);
+}
+body .cont .card-disp .card-input-area .fgroup.cnumber div {
+  width: 100%;
+}
+body .cont .card-disp .card-input-area .fgroup.cnumber input {
+  width: calc(100% - 32px);
+}
+body .cont .card-disp .card-input-area .fgroup.expire {
+  width: calc(100% - 265px);
+  margin-left: 5px;
+}
+body .cont .card-disp .card-input-area .fgroup.expire select:nth-child(2) {
+  margin-right: 5px;
+}
+body .cont .card-disp .card-input-area .fgroup.expire select {
+  width: calc(50% - (5px / 2));
+}
+body .cont .card-disp .card-input-area .fgroup.fullname {
+  width: 260px;
+}
+body .cont .card-disp .card-input-area .fgroup.fullname input {
+  width: 100%;
+}
+body .cont .card-disp .card-input-area .fgroup label {
+  font-size: 12px;
+  font-weight: 400;
+  padding-bottom: 5px;
+  width: 100%;
+  color: #a296fe;
+}
+body .cont .card-disp .card-input-area .fgroup label span {
+  color: #C1292E;
+  font-weight: 600;
+}
+body .cont .card-disp .card-input-area .fgroup input, body .cont .card-disp .card-input-area .fgroup select {
+  border: none;
+  padding: 12px 16px;
+  border-radius: 5px;
+  outline: none;
+  font-family: "Roboto Mono", monospace;
+  background-color: #301fb0;
+  color: #eceaff;
+  font-size: 14px;
+  transition: 220ms ease;
+  box-shadow: 0px 0px 0px #57c4fe;
+}
+body .cont .card-disp .card-input-area .fgroup input:focus, body .cont .card-disp .card-input-area .fgroup select:focus {
+  box-shadow: 0px 0px 6px #57c4fe;
+}
+body .cont .card-disp .card-input-area .fgroup select {
+  padding-right: 3px;
+}
+body .cont .card-disp .card-input-area .fgroup input {
+  padding: 13px 16px;
+}
+body .cont .card-disp .card-next-aera {
+  padding: 15px 20px;
+}
+body .cont .card-disp .card-next-aera .address-disp {
+  background-color: #301fb0;
+  color: #a296fe;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: "Roboto Mono", monospace;
+  line-height: 25px;
+}
+body .cont .card-disp .card-next-aera .btns {
+  margin-top: 15px;
+}
+body .cont .card-disp .card-next-aera .btns .btn {
+  padding: 15px 20px;
+  display: inline-flex;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 220ms ease;
+  transform: scale(1);
+}
+body .cont .card-disp .card-next-aera .btns .btn:hover {
+  transform: scale(0.96);
+}
+body .cont .card-disp .card-next-aera .btns .btn.btn-1 {
+  background-color: #57c4fe;
+  color: #1f144f;
+}
+body .cont .card-disp .card-next-aera .btns .btn.btn-2 {
+  background-color: #1f144f;
+  color: #57c4fe;
+}
+
+@media screen and (max-width: 992px) {
+  body .cont{
+    padding: 76% 2%;
+  }
+}
+</style>
+
+<script> 
+
+function RemoveFaClass() {
+  $('.cardtypei').removeClass('fa-cc-visa')
+  $('.cardtypei').removeClass('fa-cc-mastercard')
+  $('.cardtypei').removeClass('fa-cc-diners-club')
+  $('.cardtypei').removeClass('fa-cc-jcb')
+  $('.cardtypei').removeClass('fa-cc-amex')
+  $('.cardtypei').removeClass('fa-cc-discover')
+  $('.cardtypei').removeClass('other')
+}
+
+
+var cleave = new Cleave('.ccnumber', {
+    creditCard: true,
+    onCreditCardTypeChanged: function (type) {
+      RemoveFaClass()
+      if(type === 'visa') {
+        $('.cardtypei').addClass('fa-cc-visa')
+        return
+      } else if(type === 'mastercard') {
+        $('.cardtypei').addClass('fa-cc-mastercard')
+        return
+      } else if(type === 'diners') {
+        $('.cardtypei').addClass('fa-cc-diners-club')
+        return
+      } else if(type === 'jcb') {
+        $('.cardtypei').addClass('fa-cc-jcb')
+        return
+      } else if(type === 'discover') {
+        $('.cardtypei').addClass('fa-cc-discover')
+        return
+      } else if(type === 'amex') {
+        $('.cardtypei').addClass('fa-cc-amex')
+        return
+      } else {
+        console.warn(type)
+         $('.cardtypei').addClass('other')
+      }
+    }
+})
+
+
+let inputvals = {
+  
+}
+$('.cd-inf-txt.cardholder').html(document.getElementById('fullname').value)
+$('.card-disp select').on('change', (e) => {
+  inputvals[e.target.name] = e.target.value
+  console.log('ye', e.target.value)
+  let MM = $('.card-disp select[name="expireMM"]').val(),
+      YY = $('.card-disp select[name="expireYY"]').val()
+  
+  console.log(`${MM}/${YY}`)
+  console.log(MM+'.'+YY)
+  
+  $('.cd-inf-txt.expiresend').html(`${MM}/${YY}`)
+  
+})
+
+$('.card-disp input').on('keyup', (e) => {
+  inputvals[e.target.name] = e.target.value
+  
+  if(e.target.name === 'ccnumber') {
+    $('.cd-inf-txt.cardnumber').html(e.target.value)
+    return
+  } else if(e.target.name === 'fullname') {
+    $('.cd-inf-txt.cardholder').html(e.target.value)
+    return
+  }
+  console.log(inputvals)
+})
+</script>
+</body>

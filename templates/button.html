@@ -1,0 +1,292 @@
+<button class="button">
+    <div class="emitter"></div>
+    <div class="hand">
+        <div class="thumb"></div>
+    </div>
+    <span>Like<span>d</span></span>
+</button>
+
+<!-- dribbble - twitter -->
+<a class="dribbble" href="https://dribbble.com/ai" target="_blank"><img src="https://cdn.dribbble.com/assets/dribbble-ball-mark-2bd45f09c2fb58dbbfb44766d5d1d07c5a12972d602ef8b32204d28fa3dda554.svg" alt=""></a>
+<a class="twitter" target="_blank" href="https://twitter.com/aaroniker_me"><svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72"><path d="M67.812 16.141a26.246 26.246 0 0 1-7.519 2.06 13.134 13.134 0 0 0 5.756-7.244 26.127 26.127 0 0 1-8.313 3.176A13.075 13.075 0 0 0 48.182 10c-7.229 0-13.092 5.861-13.092 13.093 0 1.026.118 2.021.338 2.981-10.885-.548-20.528-5.757-26.987-13.679a13.048 13.048 0 0 0-1.771 6.581c0 4.542 2.312 8.551 5.824 10.898a13.048 13.048 0 0 1-5.93-1.638c-.002.055-.002.11-.002.162 0 6.345 4.513 11.638 10.504 12.84a13.177 13.177 0 0 1-3.449.457c-.846 0-1.667-.078-2.465-.231 1.667 5.2 6.499 8.986 12.23 9.09a26.276 26.276 0 0 1-16.26 5.606A26.21 26.21 0 0 1 4 55.976a37.036 37.036 0 0 0 20.067 5.882c24.083 0 37.251-19.949 37.251-37.249 0-.566-.014-1.134-.039-1.694a26.597 26.597 0 0 0 6.533-6.774z"></path></svg></a>
+<style>
+    .button {
+  --color: #F6F8FF;
+  --color-hover: #F6F8FF;
+  --color-active: #fff;
+  --icon: #E1E6F9;
+  --icon-hover: #ECEFFC;
+  --icon-active: #fff;
+  --background: #404660;
+  --background-hover: #393E57;
+  --background-active: #275EFE;
+  --shadow: rgba(0, 17, 119, 0.1);
+  display: block;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  border: 0;
+  background: none;
+  padding: 8px 20px 8px 24px;
+  border-radius: 9px;
+  line-height: 27px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--color);
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: color 0.2s linear;
+}
+.button:hover {
+  --icon: var(--icon-hover);
+  --color: var(--color-hover);
+  --background: var(--background-hover);
+}
+.button:active {
+  --scale: .95;
+}
+.button:not(.liked):hover {
+  --hand-rotate: 8deg;
+  --hand-thumb-1: -12deg;
+  --hand-thumb-2: 36deg;
+}
+.button.liked {
+  --span-x: 2px;
+  --span-d-o: 1;
+  --span-d-x: 0;
+  --icon: var(--icon-active);
+  --color: var(--color-active);
+  --background: var(--background-active);
+  --hand-name: hand;
+}
+.button:after {
+  content: "";
+  min-width: 103px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  transition: background 0.2s linear, transform 0.2s, box-shadow 0.2s linear;
+  transform: scale(var(--scale, 1)) translateZ(0);
+  background: var(--background);
+  box-shadow: 0 4px 8px var(--shadow), 0 8px 20px var(--shadow);
+}
+.button .emitter {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateZ(-4px);
+}
+.button .emitter div {
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  border-radius: 2px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-style: preserve-3d;
+  background: var(--b, none);
+}
+.button .hand {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px 0 0 0;
+  background: var(--icon);
+  margin: 10px 8px 0 0;
+  transform-origin: -5px -1px;
+  transition: transform 0.25s, background 0.2s linear;
+  transform: rotate(var(--hand-rotate, 0deg)) translateZ(0);
+  -webkit-animation: var(--hand-name, none) 0.5s linear;
+          animation: var(--hand-name, none) 0.5s linear;
+}
+.button .hand:before, .button .hand:after {
+  content: "";
+  background: var(--icon);
+  position: absolute;
+  transition: background 0.2s linear, box-shadow 0.2s linear;
+}
+.button .hand:before {
+  left: -5px;
+  bottom: 0;
+  height: 12px;
+  width: 4px;
+  border-radius: 1px 1px 0 1px;
+}
+.button .hand:after {
+  right: -3px;
+  top: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 0 2px 2px 0;
+  background: var(--icon);
+  box-shadow: -0.5px 4px 0 var(--icon), -1px 8px 0 var(--icon), -1.5px 12px 0 var(--icon);
+  transform: scaleY(0.6825);
+  transform-origin: 0 0;
+}
+.button .hand .thumb {
+  background: var(--icon);
+  width: 10px;
+  height: 4px;
+  border-radius: 2px;
+  transform-origin: 2px 2px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: transform 0.25s, background 0.2s linear;
+  transform: scale(0.85) translateY(-0.5px) rotate(var(--hand-thumb-1, -45deg)) translateZ(0);
+}
+.button .hand .thumb:before {
+  content: "";
+  height: 4px;
+  width: 7px;
+  border-radius: 2px;
+  transform-origin: 2px 2px;
+  background: var(--icon);
+  position: absolute;
+  left: 7px;
+  top: 0;
+  transition: transform 0.25s, background 0.2s linear;
+  transform: rotate(var(--hand-thumb-2, -45deg)) translateZ(0);
+}
+.button .hand,
+.button span {
+  z-index: 1;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+}
+.button .hand span,
+.button span span {
+  opacity: var(--span-d-o, 0);
+  transition: transform 0.25s, opacity 0.2s linear;
+  transform: translateX(var(--span-d-x, 4px)) translateZ(0);
+}
+.button > span {
+  transition: transform 0.25s;
+  transform: translateX(var(--span-x, 4px)) translateZ(0);
+}
+
+@-webkit-keyframes hand {
+  30% {
+    transform: rotate(-14deg) translateZ(0);
+  }
+  65% {
+    transform: rotate(7deg) translateZ(0);
+  }
+  100% {
+    transform: rotate(0deg) translateZ(0);
+  }
+}
+
+@keyframes hand {
+  30% {
+    transform: rotate(-14deg) translateZ(0);
+  }
+  65% {
+    transform: rotate(7deg) translateZ(0);
+  }
+  100% {
+    transform: rotate(0deg) translateZ(0);
+  }
+}
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: inherit;
+}
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  font-family: "Inter", Arial;
+  justify-content: center;
+  align-items: center;
+  background: #F6F8FF;
+}
+body .dribbble {
+  position: fixed;
+  display: block;
+  right: 20px;
+  bottom: 20px;
+}
+body .dribbble img {
+  display: block;
+  height: 28px;
+}
+body .twitter {
+  position: fixed;
+  display: block;
+  right: 64px;
+  bottom: 14px;
+}
+body .twitter svg {
+  width: 32px;
+  height: 32px;
+  fill: #1da1f2;
+}
+</style>
+<script>
+    gsap.registerPlugin(Physics2DPlugin);
+
+document.querySelectorAll('.button').forEach(button => {
+
+    button.addEventListener('click', e => {
+        button.classList.toggle('liked');
+        if(button.classList.contains('liked')) {
+            setTimeout(() => {
+                particles(button.querySelector('.emitter'), 100, 0, 0, 360, button.offsetWidth);
+            }, 160);
+        }
+    })
+
+});
+
+function particles(parent, quantity, y, minAngle, maxAngle, width) {
+    let colors = [
+        '#FFFF04',
+        '#EA4C89',
+        '#892AB8',
+        '#4AF2FD',
+        '#275EFE'
+    ];
+    for(let i = quantity - 1; i >= 0; i--) {
+        let angle = gsap.utils.random(minAngle, maxAngle),
+            velocity = gsap.utils.random(70, 100),
+            dot = document.createElement('div');
+        dot.style.setProperty('--b', colors[Math.floor(gsap.utils.random(0, 5))]);
+        parent.appendChild(dot);
+        gsap.set(dot, {
+            x: gsap.utils.random(width * -.5, width * .5),
+            y: y,
+            scale: gsap.utils.random(.4, .8)
+        });
+        gsap.timeline({
+            onComplete() {
+                dot.remove();
+            }
+        }).to(dot, {
+            duration: 1.7,
+            rotationX: `-=${gsap.utils.random(180, 720)}`,
+            rotationZ: `+=${gsap.utils.random(180, 720)}`,
+            physics2D: {
+                angle: angle,
+                velocity: velocity
+            }
+        }).to(dot, {
+            duration: .7,
+            opacity: 0
+        }, 1);
+    }
+}
+
+</script>

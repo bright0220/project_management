@@ -1,0 +1,98 @@
+{
+
+    "table":  {
+        "Venture": "Celli",
+        "Stage": "Validate",
+        "Workstream": [
+          {
+            "Name": "Product",
+            "Goal": "Creating a functional prototype",
+            "Table": [
+              {
+                "Task": "Defining core features",
+                "Time/Speed (days)": 3,
+                "Cost ($)": 500
+              },
+              {
+                "Task": "Creating wireframes",
+                "Time/Speed (days)": 2,
+                "Cost ($)": 300
+              },
+              {
+                "Task": "Developing proof of concept",
+                "Time/Speed (days)": 5,
+                "Cost ($)": 1000
+              },
+              {
+                "Task": "Testing the prototype",
+                "Time/Speed (days)": 4,
+                "Cost ($)": 800
+              }
+            ]
+          },
+          {
+            "Name": "Demand",
+            "Goal": "Run marketing campaigns",
+            "Table": [
+              {
+                "Task": "Market research",
+                "Time/Speed (days)": 5,
+                "Cost ($)": 1000
+              },
+              {
+                "Task": "Creating marketing materials",
+                "Time/Speed (days)": 3,
+                "Cost ($)": 600
+              },
+              {
+                "Task": "Launching online ads",
+                "Time/Speed (days)": 1,
+                "Cost ($)": 500
+              },
+              {
+                "Task": "Tracking campaign performance",
+                "Time/Speed (days)": 7,
+                "Cost ($)": 700
+              }
+            ]
+          },
+          {
+            "Name": "Team",
+            "Goal": "Hire key team members",
+            "Table": [
+              {
+                "Task": "Identify hiring needs",
+                "Time/Speed (days)": 1,
+                "Cost ($)": 200
+              },
+              {
+                "Task": "Writing job descriptions",
+                "Time/Speed (days)": 2,
+                "Cost ($)": 400
+              },
+              {
+                "Task": "Posting job ads",
+                "Time/Speed (days)": 1,
+                "Cost ($)": 300
+              },
+              {
+                "Task": "Screening candidates",
+                "Time/Speed (days)": 5,
+                "Cost ($)": 500
+              },
+              {
+                "Task": "Interviewing candidates",
+                "Time/Speed (days)": 10,
+                "Cost ($)": 1000
+              },
+              {
+                "Task": "Selecting and hiring new team members",
+                "Time/Speed (days)": 3,
+                "Cost ($)": 600
+              }
+            ]
+          }
+        ]
+      }
+         
+}

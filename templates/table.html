@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from lineone.piniastudio.com/components-table-advanced.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 16 Dec 2022 09:31:27 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Meta tags  -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+
+    <title>Lineone - Table Advanced Component</title>
+    <link rel="icon" type="image/png" href="/static//static/images/favicon.png" />
+
+    <!-- CSS Assets -->
+    <link rel="stylesheet" href="/static/css/app.css" />
+
+    <!-- Javascript Assets -->
+    <script src="/static/js/app.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body
+    x-data
+    x-bind="$store.global.documentBody"
+    class="is-header-blur is-sidebar-open"
+  >
+    <!-- App preloader-->
+    <div
+      class="app-preloader fixed z-50 grid h-full w-full place-content-center bg-slate-50 dark:bg-navy-900"
+    >
+      <div class="app-preloader-inner relative inline-block h-48 w-48"></div>
+    </div>
+ 
+    <div
+      id="root"
+      class="min-h-100vh flex grow bg-slate-50 dark:bg-navy-900"
+      x-cloak
+    >
+ 
+      <main class="main-content w-full px-[var(--margin-x)] pb-8">
+        <div id="container">
+          <!-- <div class="grid grid-cols-1 gap-4 sm:gap-5 lg:gap-6">
+ 
+            <div x-data="{isFilterExpanded:false}">
+              <div class="flex items-center justify-between" id="table_info">
+                <h2
+                  class="text-base font-medium tracking-wide text-slate-700 line-clamp-1 dark:text-navy-100"
+                >
+                   
+                </h2>
+                
+              </div>
+   
+              <div class="card mt-3">
+                <div class="is-scrollbar-hidden min-w-full overflow-x-auto">
+                  <table class="is-hoverable w-full text-left" id="table">
+  
+                  </table>
+                </div>
+  
+   
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </main>
+    </div>
+    <!-- 
+        This is a place for Alpine.js Teleport feature 
+        @see https://alpinejs.dev/directives/teleport
+      -->
+    <div id="x-teleport-target"></div>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => Alpine.start());
+      let alljsonData = JSON.parse('{{ table| tojson }}')['Workstream'];
+let cols = JSON.parse('{{ col| tojson }}');
+let container = $("#container");
+
+for (let jsonData_raw of alljsonData) {
+  let jsonData = jsonData_raw['Table'];
+  let goal = jsonData_raw['Goal'];
+  
+  // Create the goal element
+  let headingElem = $("<h2>").addClass("text-base font-medium tracking-wide text-slate-700 line-clamp-1 dark:text-navy-100");
+  headingElem.text("Goal: " + goal);
+  
+  // Create the table element
+  let tableElem = $("<table>").addClass("is-hoverable w-full text-left");
+  let thead = $("<thead>");
+  let tr = $("<tr>");
+  
+  // Create the header row
+  $.each(cols, function(i, item){
+     
+    let th = $("<th>").addClass("whitespace-nowrap bg-slate-200 px-4 py-3 font-semibold uppercase text-slate-800 dark:bg-navy-800 dark:text-navy-100 lg:px-5");
+    th.text(item);
+    tr.append(th);
+  });
+  
+  thead.append(tr);
+  tableElem.append(thead);
+  
+  // Loop through the JSON data and create table rows
+  $.each(jsonData, function(i, item){
+    let tr = $("<tr>").addClass("border-y border-transparent border-b-slate-200 dark:border-b-navy-500");
+    let vals =[];
+    for (let key of cols) {
+      vals.push(jsonData[i][key]);
+    }
+    
+    // Loop through the values and create table cells
+    $.each(vals, (i, elem) => {
+      if (elem == null || elem == "") {
+        let td = $(
+          `<td class="whitespace-nowrap px-4 py-3 sm:px-5">
+            <div class="badge space-x-2.5 text-xs+ text-warning">
+              <div class="h-2 w-2 rounded-full bg-current"></div>
+              <span>In Progress</span>
+            </div>
+          </td>`
+        );
+        tr.append(td);
+      } else {
+        let td = $("<td>").addClass("whitespace-nowrap px-4 py-3 font-medium text-slate-700 dark:text-navy-100 sm:px-5");
+        td.text(elem);
+        tr.append(td);
+      }
+    });
+    
+    tableElem.append(tr);
+  });
+  
+  // Create the container element and append the goal and table elements to it
+  let containerDiv = $("<div>").addClass("card mt-3");
+  let scrollDiv = $("<div>").addClass("is-scrollbar-hidden min-w-full overflow-x-auto");
+  
+  scrollDiv.append(tableElem);
+  containerDiv.append(headingElem);
+  containerDiv.append(scrollDiv);
+  container.append(containerDiv);
+}
+
+    </script>
+    
+  </body>
+
+<!-- Mirrored from lineone.piniastudio.com/components-table-advanced.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 16 Dec 2022 09:31:28 GMT -->
+</html>
+<!-- <thead>
+  <tr>
+    <th
+      class="whitespace-nowrap rounded-tl-lg bg-slate-200 px-4 py-3 font-semibold uppercase text-slate-800 dark:bg-navy-800 dark:text-navy-100 lg:px-5"
+    >
+      #
+    </th>
+    <th
+      class="whitespace-nowrap bg-slate-200 px-4 py-3 font-semibold uppercase text-slate-800 dark:bg-navy-800 dark:text-navy-100 lg:px-5"
+    >
+      Project Name
+    </th>
+    <th
+      class="whitespace-nowrap bg-slate-200 px-4 py-3 font-semibold uppercase text-slate-800 dark:bg-navy-800 dark:text-navy-100 lg:px-5"
+    >
+      Employer Name
+    </th>
+
+    <th
+      class="whitespace-nowrap bg-slate-200 px-4 py-3 font-semibold uppercase text-slate-800 dark:bg-navy-800 dark:text-navy-100 lg:px-5"
+    >
+      Progress
+    </th>
+    <th
+      class="whitespace-nowrap bg-slate-200 px-4 py-3 font-semibold uppercase text-slate-800 dark:bg-navy-800 dark:text-navy-100 lg:px-5"
+    >
+      Status
+    </th>
+    <th
+      class="whitespace-nowrap rounded-tr-lg bg-slate-200 px-4 py-3 font-semibold uppercase text-slate-800 dark:bg-navy-800 dark:text-navy-100 lg:px-5"
+    >
+      Deadline
+    </th>
+  </tr>
+</thead>
+<tbody>
+  <tr
+    class="border-y border-transparent border-b-slate-200 dark:border-b-navy-500"
+  >
+    <td class="whitespace-nowrap px-4 py-3 sm:px-5">1</td>
+    <td
+      class="whitespace-nowrap px-4 py-3 font-medium text-slate-700 dark:text-navy-100 sm:px-5"
+    >
+      Web Application
+    </td>
+    <td class="whitespace-nowrap px-4 py-3 sm:px-5">
+      John Doe
+    </td>
+
+    <td class="whitespace-nowrap px-4 py-3 sm:px-5">
+      <div
+        x-tooltip.primary="'42% Completed'"
+        class="progress h-2 bg-slate-150 dark:bg-navy-500"
+      >
+        <div
+          class="w-5/12 rounded-full bg-primary dark:bg-accent"
+        ></div>
+      </div>
+    </td>
+    <td class="whitespace-nowrap px-4 py-3 sm:px-5">
+      <div
+        class="badge space-x-2.5 px-0 text-primary dark:text-accent-light"
+      >
+        <div class="h-2 w-2 rounded-full bg-current"></div>
+        <span>In Progress</span>
+      </div>
+    </td>
+    <td class="whitespace-nowrap px-4 py-3 sm:px-5">
+      03 Sep
+    </td>
+  </tr>
+  <tr
+    class="border-y border-transparent border-b-slate-200 dark:border-b-navy-500"
+  >
+    <td class="whitespace-nowrap px-4 py-3 sm:px-5">2</td>
+    <td
+      class="whitespace-nowrap px-4 py-3 font-medium text-slate-700 dark:text-navy-100 sm:px-5"
+    >
+      Android App
+    </td>
+    <td class="whitespace-nowrap px-4 py-3 sm:px-5">
+      Sabina Mores
+    </td>
+
+    <td class="whitespace-nowrap px-4 py-3 sm:px-5">
+      <div
+        x-tooltip.primary="'77% Completed'"
+        class="progress h-2 bg-slate-150 dark:bg-navy-500"
+      >
+        <div
+          class="w-9/12 rounded-full bg-primary dark:bg-accent"
+        ></div>
+      </div>
+    </td>
+    <td class="whitespace-nowrap px-4 py-3 sm:px-5">
+      <div
+        class="badge space-x-2.5 px-0 text-primary dark:text-accent-light"
+      >
+        <div class="h-2 w-2 rounded-full bg-current"></div>
+        <span>In Progress</span>
+      </div>
+    </td>
+    <td class="whitespace-nowrap px-4 py-3 sm:px-5">
+      16 Sep
+    </td>
+  </tr>
+  <tr
+    class="border-y border-transparent border-b-slate-200 dark:border-b-navy-500"
+  >
+    <td class="whitespace-nowrap px-4 py-3 sm:px-5">3</td>
+    <td
+      class="whitespace-nowrap px-4 py-3 font-medium text-slate-700 dark:text-navy-100 sm:px-5"
+    >
+      Android App
+    </td>
+    <td class="whitespace-nowrap px-4 py-3 sm:px-5">
+      Bailie Coulman
+    </td>
+
+    <td class="whitespace-nowrap px-4 py-3 sm:px-5">
+      <div
+        x-tooltip.error="'Cancelled'"
+        class="progress h-2 bg-slate-150 dark:bg-navy-500"
+      >
+        <div class="w-full rounded-full bg-error"></div>
+      </div>
+    </td>
+    <td class="whitespace-nowrap px-4 py-3 sm:px-5">
+      <div class="badge space-x-2.5 px-0 text-error">
+        <div class="h-2 w-2 rounded-full bg-current"></div>
+        <span>Cancelled</span>
+      </div>
+    </td>
+    <td class="whitespace-nowrap px-4 py-3 sm:px-5">N/A</td>
+  </tr>
+  <tr
+    class="border-y border-transparent border-b-slate-200 dark:border-b-navy-500"
+  >
+    <td class="whitespace-nowrap px-4 py-3 sm:px-5">4</td>
+    <td
+      class="whitespace-nowrap px-4 py-3 font-medium text-slate-700 dark:text-navy-100 sm:px-5"
+    >
+      Desktop App
+    </td>
+    <td class="whitespace-nowrap px-4 py-3 sm:px-5">
+      Richardo Aldren
+    </td>
+
+    <td class="whitespace-nowrap px-4 py-3 sm:px-5">
+      <div
+        x-tooltip.success="'Completed'"
+        class="progress h-2 bg-slate-150 dark:bg-navy-500"
+      >
+        <div class="w-full rounded-full bg-success"></div>
+      </div>
+    </td>
+    <td class="whitespace-nowrap px-4 py-3 sm:px-5">
+      <div class="badge space-x-2.5 px-0 text-success">
+        <div class="h-2 w-2 rounded-full bg-current"></div>
+        <span>Completed</span>
+      </div>
+    </td>
+    <td class="whitespace-nowrap px-4 py-3 sm:px-5">
+      25 Aug
+    </td>
+  </tr>
+  <tr
+    class="border-y border-transparent border-b-slate-200 dark:border-b-navy-500"
+  >
+    <td class="whitespace-nowrap px-4 py-3 sm:px-5">5</td>
+    <td
+      class="whitespace-nowrap px-4 py-3 font-medium text-slate-700 dark:text-navy-100 sm:px-5"
+    >
+      CRM App
+    </td>
+    <td class="whitespace-nowrap px-4 py-3 sm:px-5">
+      Nolan Doe
+    </td>
+
+    <td class="whitespace-nowrap px-4 py-3 sm:px-5">
+      <div
+        x-tooltip.secondary="'Pending'"
+        class="progress h-2 bg-slate-150 dark:bg-navy-500"
+      >
+        <div class="w-1/12 rounded-full bg-secondary"></div>
+      </div>
+    </td>
+    <td class="whitespace-nowrap px-4 py-3 sm:px-5">
+      <div
+        class="badge space-x-2.5 px-0 text-secondary dark:text-secondary-light"
+      >
+        <div class="h-2 w-2 rounded-full bg-current"></div>
+        <span>Pending</span>
+      </div>
+    </td>
+    <td class="whitespace-nowrap px-4 py-3 sm:px-5">3 Oct</td>
+  </tr>
+</tbody> -->
