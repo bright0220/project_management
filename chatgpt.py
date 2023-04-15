@@ -128,6 +128,7 @@ class GPT:
                 jsonFile.close()
                 
                 res=res+"\n"+"https://65af-43-205-230-148.in.ngrok.io/"+str(ids)+"\nThank You"
+                print(res)
         self.session["log"].append({"role": "assistant", "content": res})
         with open(self.file_name, "w") as jsonFile:
             json.dump(self.session, jsonFile)
