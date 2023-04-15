@@ -27,7 +27,7 @@ class GPT:
                 },
             ],
             "flag_website":self.data.get("flag_website"),
-            "flag_plan":self.data['plan'],
+            "flag_plan":self.data['flag_plan'],
             "url":self.data['url'],
         }
 
