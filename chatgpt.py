@@ -26,7 +26,9 @@ class GPT:
                     "content": self.data["start_chat"],
                 },
             ],
-            "flag_website":self.data.get("flag_website")
+            "flag_website":self.data.get("flag_website"),
+            "flag_plan":self.data['plan'],
+            "url":self.data['url'],
         }
 
         try:
@@ -40,6 +42,10 @@ class GPT:
             outfile.close()
 
     def bot(self, input_query):
+        if self.session["flag_plan"]:
+            self.session['flag_plan']=False    
+             
+            return self.session['url']    
         if self.session["start"]:
             self.session['start']=False    
             with open(self.file_name, "w") as jsonFile:
@@ -129,6 +135,10 @@ class GPT:
                 
                 res=res+"\n"+"https://65af-43-205-230-148.in.ngrok.io/"+str(ids)+"\nThank You"
                 print(res)
+                if self.session['flag_plan']==False:
+                     self.session['flag_plan']=True
+                     self.session['url']="https://65af-43-205-230-148.in.ngrok.io/"+str(ids)+"\nThank You"
+
         self.session["log"].append({"role": "assistant", "content": res})
         with open(self.file_name, "w") as jsonFile:
             json.dump(self.session, jsonFile)
