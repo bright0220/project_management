@@ -44,7 +44,9 @@ class GPT:
     def bot(self, input_query):
         if self.session["flag_plan"]:
             self.session['flag_plan']=False    
-             
+            with open(self.file_name, "w") as jsonFile:
+                json.dump(self.session, jsonFile)
+            jsonFile.close() 
             return self.session['url']    
         if self.session["start"]:
             self.session['start']=False    
