@@ -5,8 +5,9 @@ from twilio.twiml.messaging_response import MessagingResponse
 import uuid  
 import json
 from chatgpt import GPT
+
+
 app = Flask(__name__,static_folder='static')
- 
 server = "https://39a8-13-234-78-3.in.ngrok.io/"
 
 @app.route("/")
@@ -47,7 +48,7 @@ def get_bot_response():
 @app.route("/info", methods=["POST"])
 def sbot_gpt():
  
-    id = str(request.values.get("From", ""))+"_spree"
+    id = str(request.values.get("From", ""))+"_shareos"
     incoming_msg = request.values.get("Body", "")
     chat_model=GPT(id,"infoagent")
     answer = chat_model.bot(incoming_msg)
