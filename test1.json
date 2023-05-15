@@ -1,1 +1,62 @@
-{"table": {"Venture": "Beauty and wellness products company", "Stage": "Validation", "Workstream": [{"Name": "Product", "Goal": "Build an MVP for a pilot test", "Table": [{"Task": "Conduct market research to understand customer needs", "Time/Speed (days)": "10", "Cost ($)": "500", "Job Function": "Market Researcher", "Seniority Type": "Junior", "Team Lead Name": "Yuvaraj", "Execution Score": "", "Performance Score": "", "Visual Outputs": "Market research report", "Comments": ""}, {"Task": "Develop product concept based on research findings", "Time/Speed (days)": "5", "Cost ($)": "1000", "Job Function": "Product Manager", "Seniority Type": "Mid", "Team Lead Name": "Yuvaraj", "Execution Score": "", "Performance Score": "", "Visual Outputs": "Product concept document", "Comments": ""}, {"Task": "Create wireframes for the MVP", "Time/Speed (days)": "7", "Cost ($)": "1500", "Job Function": "UX Designer", "Seniority Type": "Mid", "Team Lead Name": "Yuvaraj", "Execution Score": "", "Performance Score": "", "Visual Outputs": "Wireframes for MVP", "Comments": ""}, {"Task": "Develop MVP based on wireframes", "Time/Speed (days)": "30", "Cost ($)": "5000", "Job Function": "Full-Stack Developer", "Seniority Type": "Senior", "Team Lead Name": "Yuvaraj", "Execution Score": "", "Performance Score": "", "Visual Outputs": "Functional prototype", "Comments": ""}]}]}}
+{
+  "table": {
+    "Venture": "Beauty and wellness products company",
+    "Stage": "Validation",
+    "Workstream": [
+      {
+        "Name": "Product",
+        "Goal": "Build an MVP for a pilot test",
+        "Table": [
+          {
+            "Task": "Conduct market research to understand customer needs",
+            "Time/Speed (days)": "10",
+            "Cost ($)": "500",
+            "Job Function": "Market Researcher",
+            "Seniority Type": "Junior",
+            "Team Lead Name": "Yuvaraj",
+            "Execution Score": "",
+            "Performance Score": "",
+            "Visual Outputs": "Market research report",
+            "Comments": ""
+          },
+          {
+            "Task": "Develop product concept based on research findings",
+            "Time/Speed (days)": "5",
+            "Cost ($)": "1000",
+            "Job Function": "Product Manager",
+            "Seniority Type": "Mid",
+            "Team Lead Name": "Yuvaraj",
+            "Execution Score": "",
+            "Performance Score": "",
+            "Visual Outputs": "Product concept document",
+            "Comments": ""
+          },
+          {
+            "Task": "Create wireframes for the MVP",
+            "Time/Speed (days)": "7",
+            "Cost ($)": "1500",
+            "Job Function": "UX Designer",
+            "Seniority Type": "Mid",
+            "Team Lead Name": "Yuvaraj",
+            "Execution Score": "",
+            "Performance Score": "",
+            "Visual Outputs": "Wireframes for MVP",
+            "Comments": ""
+          },
+          {
+            "Task": "Develop MVP based on wireframes",
+            "Time/Speed (days)": "30",
+            "Cost ($)": "5000",
+            "Job Function": "Full-Stack Developer",
+            "Seniority Type": "Senior",
+            "Team Lead Name": "Yuvaraj",
+            "Execution Score": "",
+            "Performance Score": "",
+            "Visual Outputs": "Functional prototype",
+            "Comments": ""
+          }
+        ]
+      }
+    ]
+  }
+}

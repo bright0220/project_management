@@ -25,7 +25,13 @@ def plhome(planid):
     with open(file_name , "r") as jsonFile:
         data_table = json.load(jsonFile)
     jsonFile.close()
-    return render_template("table.html", table=data_table['table'],col=list(data_table['table']['Workstream'][0]['Table'][0].keys()))
+    
+    employee_file = f"employee.json"
+    employee_data = {}
+    with open(employee_file , "r") as employeeFile:
+        employee_data = json.load(employeeFile)
+    employeeFile.close()
+    return render_template("table.html", table=data_table['table'],col=list(data_table['table']['Workstream'][0]['Table'][0].keys()), employee = employee_data)
  
 
 @app.route("/get")
