@@ -1,0 +1,19 @@
+{
+  "employees": [
+    {
+      "name": "John Smith",
+      "phone": "123-456-7890",
+      "expertise": ["frontend", "backend"]
+    },
+    {
+      "name": "Jane Doe",
+      "phone": "987-654-3210",
+      "expertise": ["frontend", "AI engineer"]
+    },
+    {
+      "name": "Alex Johnson",
+      "phone": "555-555-5555",
+      "expertise": ["backend"]
+    }
+  ]
+}
